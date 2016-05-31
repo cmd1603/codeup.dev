@@ -1,0 +1,27 @@
+body, html {
+	margin: 0px; 
+	padding: 0px; 
+	font-family: 'Trebuchet MS',verdana;"
+}
+
+.content {
+	background-color: #999f8e;
+	width:20%
+	height: 350px;
+	padding:10;
+	float: left;
+}
+
+.right-column {
+	width:80%;
+	height: 80%;
+	background-color:#d2d8c7;
+	float: right;
+}
+
+div {
+	width:40%;
+	align:top; 
+	color:#999f8e;
+	text-decoration: underline;
+}

@@ -1,0 +1,10 @@
+/*
+multi
+line
+comment
+*/
+
+h1 {
+    color: blue; /* single line comment */
+    text-decoration: underline;
+}

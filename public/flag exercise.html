@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>An American Flag Made with CSS</title>
+
+
+<style type="text/css">
+* {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 400px Helvetica, sans-serif;
+    margin: 100px auto;
+    padding: 0 0 100px;
+    position: relative;
+    width: 800px;
+}
+h1 {
+    font-size: 32px;
+}
+p {
+    color: #444;
+    font-size: 12px;
+    margin: 0 0 48px;
+}
+#flag {
+    background-color: #fff;
+    height: 1em;
+    position: relative;
+    width: 1.9em;
+}
+#fieldofblue {
+    background-color: #3C3B6E;
+    height: 0.54em;
+    position: absolute;
+        top: 0;
+        left: 0;
+    width: 0.76em;
+}
+.inner {
+    height: 0.6em;
+    overflow: hidden;
+    position: relative;
+        top: 0.014em;
+        left: 0.034em;
+    width: 0.8em;
+}
+.star {
+    float: left;
+    height: 0.062em;
+    margin: 0 0.0650em -0.009em 0;
+    width: 0.064em;
+}
+.star span {
+    color: white;
+    display: block;
+    font-size: 0.0667em;
+}
+div.row {
+    clear: left;
+    position: relative;
+    left: 0.065em;
+}
+div.row:first-child {
+    top: 0;
+    left: 0;
+}
+div.row:nth-child(odd) {
+    left: 0;
+}
+#thirteen-colonies div.stripe {
+    background-color: #fff;
+    height: 0.0769em;
+}
+#thirteen-colonies div.stripe:nth-child(odd) {
+    background-color: #B22234;
+}
+#thirteen-colonies div.stripe:nth-child(8) {
+    position: relative;
+    z-index: 99;
+}
+footer#sosumi {
+    color: #ccc;
+    font-size: 16px;
+    position: absolute;
+        bottom: 0;
+        left: 0;
+}
+</style>
+</head>
+<body>
+
+<h1>An American Flag Made with CSS</h1>
+
+<div id="flag">
+    <div id="fieldofblue">
+        <div class="inner">
+            <div class="row">
+                <div class="star" title="Delaware"><span>&#10029;</span></div>
+                <div class="star" title="Pennsylvania"><span>&#10029;</span></div>
+                <div class="star" title="New Jersey"><span>&#10029;</span></div>
+                <div class="star" title="Georgia"><span>&#10029;</span></div>
+                <div class="star" title="Connecticut"><span>&#10029;</span></div>
+                <div class="star" title="Massachusetts"><span>&#10029;</span></div>
+            </div>
+            <div class="row">
+                <div class="star" title="Maryland"><span>&#10029;</span></div>
+                <div class="star" title="South Carolina"><span>&#10029;</span></div>
+                <div class="star" title="New Hampshire"><span>&#10029;</span></div>
+                <div class="star" title="Virginia"><span>&#10029;</span></div>
+                <div class="star" title="New York"><span>&#10029;</span></div>
+            </div>
+            <div class="row">
+                <div class="star" title="North Carolina"><span>&#10029;</span></div>
+                <div class="star" title="Rhode Island"><span>&#10029;</span></div>
+                <div class="star" title="Vermont"><span>&#10029;</span></div>
+                <div class="star" title="Kentucky"><span>&#10029;</span></div>
+                <div class="star" title="Tennessee"><span>&#10029;</span></div>
+                <div class="star" title="Ohio"><span>&#10029;</span></div>
+            </div>
+            <div class="row">
+                <div class="star" title="Louisiana"><span>&#10029;</span></div>
+                <div class="star" title="Indiana"><span>&#10029;</span></div>
+                <div class="star" title="Mississippi"><span>&#10029;</span></div>
+                <div class="star" title="Illinois"><span>&#10029;</span></div>
+                <div class="star" title="Alabama"><span>&#10029;</span></div>
+            </div>
+            <div class="row">
+                <div class="star" title="Maine"><span>&#10029;</span></div>
+                <div class="star" title="Missouri"><span>&#10029;</span></div>
+                <div class="star" title="Arkansas"><span>&#10029;</span></div>
+                <div class="star" title="Michigan"><span>&#10029;</span></div>
+                <div class="star" title="Florida"><span>&#10029;</span></div>
+                <div class="star" title="Texas"><span>&#10029;</span></div>
+            </div>
+            <div class="row">
+                <div class="star" title="Iowa"><span>&#10029;</span></div>
+                <div class="star" title="Wisconsin"><span>&#10029;</span></div>
+                <div id="liveHereNow" class="star" title="California"><span>&#10029;</span></div>
+                <div class="star" title="Minnesota"><span>&#10029;</span></div>
+                <div class="star" title="Oregon"><span>&#10029;</span></div>
+            </div>
+            <div class="row">
+                <div class="star" title="Kansas"><span>&#10029;</span></div>
+                <div class="star" title="West Virginia"><span>&#10029;</span></div>
+                <div class="star" title="Nevada"><span>&#10029;</span></div>
+                <div class="star" title="Nebraska"><span>&#10029;</span></div>
+                <div class="star" title="Colorado"><span>&#10029;</span></div>
+                <div class="star" title="North Dakota"><span>&#10029;</span></div>
+            </div>
+            <div class="row">
+                <div class="star" title="South Dakota"><span>&#10029;</span></div>
+                <div class="star" title="Montana"><span>&#10029;</span></div>
+                <div id="grewUpHere" class="star" title="Washington"><span>&#10029;</span></div>
+                <div class="star" title="Idaho"><span>&#10029;</span></div>
+                <div class="star" title="Wyoming"><span>&#10029;</span></div>
+            </div>
+            <div class="row">
+                <div class="star" title="Utah"><span>&#10029;</span></div>
+                <div class="star" title="Oklahoma"><span>&#10029;</span></div>
+                <div class="star" title="New Mexico"><span>&#10029;</span></div>
+                <div id="livedHereIn2009" class="star" title="Arizona"><span>&#10029;</span></div>
+                <div id="bornHereIn1983" class="star" title="Alaska"><span>&#10029;</span></div>
+                <div id="wentToUniversity" class="star" title="Hawaii"><span>&#10029;</span></div>
+            </div>
+        </div>
+    </div>
+    <div id="thirteen-colonies">
+        <div class="stripe" title="New Hampshire"></div>
+        <div class="stripe" title="Massachusetts"></div>
+        <div class="stripe" title="Rhode Island"></div>
+        <div class="stripe" title="Connecticut"></div>
+        <div class="stripe" title="New York"></div>
+        <div class="stripe" title="New Jersey"></div>
+        <div class="stripe" title="Pennsylvania"></div>
+        <div class="stripe" title="Delaware"></div>
+        <div class="stripe" title="Maryland"></div>
+        <div class="stripe" title="Virginia"></div>
+        <div class="stripe" title="North Carolina"></div>
+        <div class="stripe" title="South Carolina"></div>
+        <div class="stripe" title="Georgia"></div>
+    </div>
+</div>
+
+<!--<footer id="sosumi">&#63743;</footer>-->
+
+</body>
+</html>

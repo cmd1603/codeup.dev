@@ -1,0 +1,50 @@
+body {
+	background-color: #000;
+	color: #fff;
+}
+
+p {
+	position: absolute;
+	margin-right: 50px;
+	margin-left: 10px;
+}
+
+h1, h4, {
+	margin-right: 20px;
+}
+
+.container-fluid {
+	background-color: #000;
+}
+
+
+
+.navbar-default .navbar-brand {
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav>li>a {
+	columns: #fff;
+}
+
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #777;
+}
+
+.social .fa-facebook:hover {
+    color: #4060A5;
+}
+
+.social .fa-twitter:hover {
+    color: #00ABE3;
+}
+
+.social .fa-google-plus:hover {
+    color: #e64522;
+}
+
+.social .fa-linkedin:hover {
+    color: #0094BC;
+}

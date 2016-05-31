@@ -1,0 +1,70 @@
+h1 {
+	font-size: 44px;
+}
+
+.box {
+	border: 3px solid black;
+	width: 950px;
+	height: 588px;
+	padding: 0px;
+	color: #FFF;
+	margin-bottom: 10px;
+}
+
+#south-korea .flag {
+	width: 500px;
+	height: 652px;
+}
+
+#south-korea .main-circle {
+    width: 63%;
+    height: 50%;
+    background-color: #000;
+    border-radius: 50%;
+    margin: 17% auto;
+    overflow: hidden;
+    margin-left: 316px;
+    margin-top: -500px;
+}
+
+#south-korea .half-circle {
+	position: relative;
+	top: 5%;
+	width: 100%;
+	height: 50%;
+	background-color: red;
+	transform: rotate(45deg);
+	left: 50px;
+}
+
+#switzerland {
+	background-color: red;
+}
+
+
+.top-rectangle {
+
+	background: rgb(255, 255, 255);
+    height: 588px;
+    position: relative;
+    width: 118px;
+    margin-top: -600px;
+    margin-left: 411px;
+}
+
+.main-rectangle {
+
+    background-color: white;
+    height: 109px;
+    position: relative;
+    width: 950px;
+    margin-top: -600px;
+    top: 250px;
+    margin-left: 3px;
+}
+
+
+
+
+
+
