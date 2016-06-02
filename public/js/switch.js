@@ -3,6 +3,7 @@
 var luckyNumber = Math.floor(Math.random()* 6)
 
 var receipt = 60;
+var discount;
 var luckyNumber0 = 0;
 var luckyNumber1 = .10;
 var luckyNumber2 = .25;
@@ -11,49 +12,72 @@ var luckyNumber4 = .50;
 var luckyNumber5 = 1;
 
 switch (luckyNumber) {
-	case 0: 
-	console.log("You will have to pay the original amount of $60");
-	break;
-	case 1: 
-	console.log("You will have a 10 percent discount, $" + receipt * luckyNumber1);
-	break;
-	case 2: 
-	console.log("You will have a 25 percent discount, $" + receipt * luckyNumber2);
-	break;
-	case 3: 
-	console.log("You will have a 35 percent discount, $" + receipt * luckyNumber3);
-	break;
-	case 4: 
-	console.log("You will have a 50 percent discount, $" + receipt * luckyNumber4);
-	break;
-	case 5: 
-	console.log("You will have a 100 percent discount ");
-	break;
-
+	case 0:
+		discount = 0;
+		break;
+	case 1:
+		discount = 0.10;
+		break;
+	case 2:
+		discount = 0.25;
+		break;
+	case 3:
+		discount = 0.35;
+		break;
+	case 4:
+		discount = 0.5;
+		break;
+	case 5:
+		discount = 1;
+		break;
 }
+
+var discoutedCost = receipt - (receipt * discount);
+
+console.log('You got a ' + luckyNumber + ' and have to pay ' + discoutedCost);
+
 
 var monthNumber = Math.floor(Math.random()* 12) + 1;
 var month;
 
-var jan = 1;
-var feb = 2;
-var mar = 3;
-var april = 4;
-var may = 5;
-var june = 6;
-var july = 7;
-var aug = 8;
-var sept = 9;
-var oct = 10;
-var nov = 11;
-var dec = 12;
-
 switch (monthNumber) {
 	case 1:
-	month = "jan";
-	console.log("You are month" + jan);
-
+		month = 'January';
+		break;
+	case 2:
+		month = 'February';
+		break;
+	case 3:
+		month = 'March';
+		break;
+	case 4:
+		month = 'April';
+		break;
+	case 5:
+		month = 'May';
+		break;
+	case 6:
+		month = 'June';
+		break;
+	case 7:
+		month = 'July';
+		break;
+	case 8:
+		month = 'August';
+		break;
+	case 9:
+		month = 'September';
+		break;
+	case 10:
+		month = 'October';
+		break;
+	case 11:
+		month = 'November';
+		break;
+	case 12:
+		month = 'December';
+		break;
 }
 
-
+console.log('You got a ' + monthNumber + ' which is ' + month);
 
