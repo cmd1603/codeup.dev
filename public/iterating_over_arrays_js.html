@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+    <title>Iterating Arrays JS</title>
+    </head>
+    <body>
+    	<script>
+	
+			// todo:
+			// Create an array of 4 names using literal array notation, in a variable called 'names'.
+			var names = ['Ashley', 'Valerie', 'Zelina', 'Diana', 'Rachel', 'Chris'];
+			// todo:
+			// Create a log statement that will log the number of elements in the names array.
+			console.log("There are " + names.length + " names in the names array.");
+			
+			console.log("For loop:");
+			
+			for (var i = 0; i < names.length; i ++) {
+				console.log("Name at index: " + i + " is " + names[i]);
+			}
+			
+			console.log("ForEach loop:");
+			
+			
+			names.forEach(function (element, index, array) {
+				console.log("Name at index: " + index + " is " + element);
+			});
+			
+			var parksString = 'Arches,Badlands,Carlsbad,Denali';
+			
+			var parksArray = parksString.split(',');
+			
+			console.log(parksArray);
+			
+			var words = ['dog', 'cat', 'bear', 'lion'];
+			words.sort();
+			console.log(words);
+
+			
+		</script>
+    </body>
+</html>
