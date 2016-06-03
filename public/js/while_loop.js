@@ -2,20 +2,31 @@
 
 // This is how you get a random number between 50 and 100
 var allCones = Math.floor(Math.random() * 50) + 50;
-var conesSold = 0;
+var cones;
+var remaining = allCones;
+var msg;
+
 do {
 	var cones = Math.floor(Math.random() * 5) + 1;
-	if (cones > allCones - conesSold) {
-		console.log('Cannot sell you ' + cones + ' I only have ' + (allCones - conesSold));
+	remaining -= cones;
+	msg = cones + ' cones sold...'; 
+	if (remaining < 0) {
+		msg = 'Cannot sell you ' + cones + ' I only have ' + (remaining + cones) + ' ...';
 	
-} else {	
-	console.log(cones + ' cones sold...');
-	conesSold = conesSold + cones;
-}
-} while(conesSold <= allCones);
-		console.log('Yay I sold them all');
+};
 
-// This is how you get a random number between 1 and 5
+	if (remaining == 0) {
+		msg = 'Yay, I sold them all!';
+	};
+
+	console.log(msg);
+
+} while(remaining > 0);
 
 
-var num
+var num = 2;
+do {
+	console.log(num)
+	num = num * 2
+} while (num <= 65536);
+

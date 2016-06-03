@@ -7,10 +7,44 @@
 <body>
 <script>
 
+//Question #1
+for (var i = 1; i <= 10; i++) {
+
+	var log = '';
+	for (var j = 1; j <= i; j++){
+		if (i == 10) {
+			log += 0;
+		} else {
+			log += i;
+		}
+	};
+	console.log(log);
+};
+
+//Question #2
 var randomNumber = Math.floor(Math.random() *10) + 1;
-	for (var i = 1; i <= 10; i++ ) {
-	var multipleOfSeven = randomNumber * i
-	console.log(randomNumber + 'x' + i + '=' multipleOfSeven);
+	var multipleOfSeven;
+
+	for (var i = 1; i <= 15; i++) {
+	multipleOfSeven = randomNumber * i;
+	console.log(randomNumber + 'x' + i + '=' + multipleOfSeven);
+};
+
+//Question #3
+for (var i = 1; i <= 10; i++) {
+
+	var randomNumber = Math.floor(Math.random() *180) + 20;
+	var numstate = ' is odd';
+	if (randomNumber % 2 == 0) {
+		numstate = ' is even';
+	};
+	console.log(randomNumber + numstate);
+};
+
+//Question #4
+for (var i = 100; i > 0; i -= 5) {
+	console.log(i);
+};
 
 </script>
 </body>

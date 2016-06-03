@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Debug Day 2</title>
+</head>
+<body>
+<script>
+
+/*
+ * How many times a lucky number is repeated for every 100 customers?
+ */
+var luckyNumber;
+var i = 1;
+var counter0 = 0;
+var counter1 = 0;
+var counter2 = 0;
+var counter3 = 0;
+var counter4 = 0;
+var counter5 = 0;
+
+
+for(i = 1; i <= 100; i = i +1) {
+	luckyNumber = Math.floor(Math.random()* 6);
+
+switch (luckyNumber) {
+	case 0: 
+		counter0++;
+		break;
+	case 1:
+		counter1++;		
+		break;
+	case 2:
+		counter2++;
+		break;
+	case 3:
+		counter3++;
+		break;
+	case 4:
+		counter4++;
+		break;
+	case 5: 
+		counter5++;
+		break;
+	}
+
+}
+console.log('0 appeared ' + counter0 + ' times');
+console.log('1 appeared ' + counter1 + ' times');
+console.log('2 appeared ' + counter2 + ' times');
+console.log('3 appeared ' + counter3 + ' times');
+console.log('4 appeared ' + counter4 + ' times');
+console.log('5 appeared ' + counter5 + ' times');
+console.log(counter0+counter1+counter2+counter3+counter4+counter5);
+
+    // What do I need here?
+
+// The output should be something like
+
+// 0 appeared 10 times
+// 1 appeared 20 times
+// 2 appeared 15 times
+// 3 appeared 35 times
+// 4 appeared 4 times
+// 5 appeared 16 times
+
+// The total should be 100
+</script>
+</body>
+</html>
