@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+    <title>Split/Join Arrays JS</title>
+    </head>
+    <body>
+    	<script>
+
+(function(){
+    "use strict";
+
+    var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
+    var planetsArray = planetsString.split('|');
+
+    // TODO: Convert planetsString to an array, save it to planetsArray.
+    console.log(planetsArray);
+
+    // TODO: Create a string with <br> tags between each planet. console.log() your results.
+    //       Why might this be useful?
+    var brString = planetsArray.join('<br>');
+    console.log(brString);
+    // Bonus: Create a second string that would display your planets in an undordered list. 
+    var listPlanets = planetsArray.join('</li><li>');
+    var secondString = '<ul><li>' + listPlanets + ('/li><li>') + '</li></ul>'
+     //        You will need an opening AND closing <ul> tags around the entire string, and <li> tags around each planet.
+    //        console.log() your results.
+    console.log(secondString)
+})();
+
+
+
+
+		
+		// todo:
+		// Copy the array of planets you created in the last lesson.
+		/* 
+		var planetsArray = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter',
+		'Saturn', 'Uranus', 'Neptune'];
+
+		console.log(planetsArray);
+		
+		// todo: Join the planets array with pipes (|) to create a variable named 'planetsAsString'.
+		var planetsAsString = planetsArray.join("|");
+		console.log(planetsAsString);
+		
+		// todo: Split the 'planetsAsString' variable by pipes (|) to create a variable named 'planetsAsArray'.
+		var planetsAsArray = planetsAsString.split("|")
+		console.log(planetsAsArray);
+		*/
+		</script>
+
+    </body>
+</html>
+
+
+
+})();
