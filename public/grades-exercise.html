@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+
+    var username = prompt("What is your name?");
+    var subject = prompt("Hello "+ username + ". What subject are you taking?");
+    var gradesPrompt = prompt("What was your grade in " + subject + "?");
+    var gradesArray = [Number(gradesPrompt)];
+    var otherGrades = confirm("Do you have more grades in any other subjects?");
+    
+    while (otherGrades == true){
+        var otherSubject = prompt("What subject is this grade in?");
+        var nextGrade = prompt("What was your grade in " + otherSubject + "?");
+        gradesArray.push(Number(nextGrade));
+        otherGrades = confirm("Do you have more grades in any other subjects?");
+    }
+    
+    console.log(gradesArray);
+    
+    var average = {
+        grades: this.gradesArray,
+        gradesTotal: this.gradesArray.length,
+    
+        getAverage: function() {
+            var total = 0;
+            for(var i = 0; i < this.gradesTotal; i++) {
+                total = (total + this.grades[i]);
+            }
+            return total / this.gradesTotal;
+        }
+    }
+    
+    var awesomeGrade = 80;
+    
+    if (average.getAverage() >= awesomeGrade) {
+        alert("You're average score is: " + Math.round(average.getAverage()) + " You are awesome!");
+    } else {
+        alert("You're average score is: " + Math.round(average.getAverage()) + " You need more work...");
+    }
+    
+</script>
+</body>
+</html>
