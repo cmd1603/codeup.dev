@@ -20,30 +20,37 @@
         // Set our map options
         var mapOptions = {
             // Set the zoom level
-            zoom: 18,
+            zoom: 19,
 
             // This sets the center of the map at our location
             center: {
                 lat:  29.426791,
                 lng: -98.489602
-
             }
         };
 
         // Render the map
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		//var address = "300 Alamo Plaza, San Antonio, TX, 78205";; 
 
         var geocoder = new google.maps.Geocoder();
-        var address = '3928 Broadway St San Antonio, Texas 78209' 
-		var chipotle = address;
+		var codeup = { lat: 29.426791, lng: -98.489602 };
 
 		// Add the marker to our existing map
+       
 		var marker = new google.maps.Marker({
-		    position: chipotle,
+		    position: codeup,
 		    map: map
+		});         
+
+		var infowindow = new google.maps.InfoWindow({
+			content: "Changing the world, one programmer at a time."
 		});
+
+
+		infowindow.open(map, marker);
         //Geocode our address
-        geocoder.geocode({ "address": address }, function(results, status) {
+        //geocoder.geocode({ "address": address }, function(results, status) {
 
    		// Check for a successful result
    		if (status == google.maps.GeocoderStatus.OK) {
@@ -55,7 +62,7 @@
        // Show an error message with the status if our request fails
        			alert("Geocoding was not successful - STATUS: " + status);
    			}
-		});
+		//});
 
 
 
