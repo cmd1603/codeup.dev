@@ -17,8 +17,7 @@
     (function() {
         "use strict";
 
-        // Set our map options
-        var mapOptions = {
+       /* var mapOptions = {
             // Set the zoom level
             zoom: 16,
 
@@ -28,26 +27,56 @@
                 lng: -98.465503
             }
           
-        };
+        };*/
         
-        // Render the map
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-		//var address = "300 Alamo Plaza, San Antonio, TX, 78205";; 
+ 
 
-    map.setMapTypeId(google.maps.MapTypeId.SATELLITE); 
+     
 
-		var chipotle = { lat: 29.462377, lng: -98.465503 };
+		//var chipotle = { lat: 29.462377, lng: -98.465503 };
 
-		// Add the marker to our existing map
-       
-		var marker = new google.maps.Marker({
-		    position: {lat: 29.462377, lng: -98.465503},
-		    map: map,
-        draggable: true,
-        animation: google.maps.Animation.DROP
-		});       
+    var locations = [
+    ['Broadway', 29.462377, -98.465503, 3],
+    ['Jones Maltsberger', 29.498107, -98.479999, 2],
+    ['Park North Shopping Center', 29.519573, -98.500935, 1]
+    ]; 
 
-    marker.addListener('click', toggleBounce);
+    var map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 11,
+      center: new google.maps.LatLng(29.45, -98.47),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+  //map.setMapTypeId();
+
+    var contentString = '<div id ="content">' + '<div id="siteNotice">' + '</div>' + '<h1 id ="firstHeading">Chipotle</h1>' + '<p>3928 Broadway St, San Antonio, TX 78209</p>' + '<div id="bodyContent">' + '<b>"Changing the world, one burrito at a time."</b>' +
+      '<p><b>Chipotle</b>, also known as "The Best Place Ever", is so good, </p><p>people once risked dying of e coli to eat here.</p>' + '<img style="width:200px" src="http://cdn.foodbeast.com/content/wp-content/uploads/2013/07/chipotle-adds-tofu.jpg">' + '<img style= "height:120px" "width:200px" src="http://i.imgur.com/1e7gzbG.jpg">' +
+      '</div>' +
+      '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    })
+   // content: contentString;
+    
+
+    // var marker, i;
+
+   /* google.maps.event.addListener(marker, 'click', function () {
+        map.setZoom(21);
+        map.setCenter(marker.getPosition());
+    
+      infowindow.open(map, marker);
+    });
+	 */	
+  //   var marker = new google.maps.Marker({
+		//     position: locations,
+		//     map: map,
+  //       draggable: true,
+  //       animation: google.maps.Animation.DROP
+		// });       
+
+    // marker.addListener('click', toggleBounce);
 
     function toggleBounce(){
       if (marker.getAnimation() !== null) {
@@ -56,36 +85,33 @@
         marker.setAnimation(google.maps.Animation.BOUNCE);
       }
     }
-    //zoom to 20 when clicking on the marker
-
-    var contentString = '<div id ="content">' + '<div id="siteNotice">' + '</div>' + '<h1 id ="firstHeading">Chipotle</h1>' + '<p>3928 Broadway St, San Antonio, TX 78209</p>' + '<div id="bodyContent">' + '<b>"Changing the world, one burrito at a time."</b>' +
-      '<p><b>Chipotle</b>, also known as "The Best Place Ever", is so good, </p><p>people once risked dying of e coli to eat here.</p>' + '<img style="width:200px" src="http://cdn.foodbeast.com/content/wp-content/uploads/2013/07/chipotle-adds-tofu.jpg">' + '<img style= "height:180px" "width:200px" src="http://i.imgur.com/1e7gzbG.jpg">' +
-      '</div>' +
-      '</div>';
 
 
-		var infowindow = new google.maps.InfoWindow({
-		content: contentString
-		});
+    for (var i = 0; i < locations.length; i++) { 
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2], locations[i][3]),
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP
+      });
+
 
     google.maps.event.addListener(marker, 'click', function () {
-        map.setZoom(21);
+        map.setZoom(18);
         map.setCenter(marker.getPosition());
     
-      infowindow.open(map, marker);
+      infowindow.open(map, this);
     });
+
+    }
 
 		
 
-    var address = '3928 Broadway St, San Antonio, TX 78209';
-    var geocoder = new google.maps.Geocoder(); 
+    //var address = '3928 Broadway St, San Antonio, TX 78209';
+    //var geocoder = new google.maps.Geocoder(); 
 
 
-    var locations = [
-    ['Broadway', 29.462377, -98.465503, 3],
-    ['Jones Maltsberger', 29490969, -98.483205, 2]
-    ['Park North Shopping Center', 29.5195036, -98.5708852, 1]
-    ]   
+  
 
     //Geocode our address
     

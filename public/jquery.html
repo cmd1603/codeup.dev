@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQUERY</title>
+</head>
+<body>
+	<h1>Wudup Codeup Fam</h1>
+		<p id="para">Hello World</p>
+    <div id="wrapper">
+			<p>Hello, my name is Chris. Here are some fun facts about me:</p>
+           <ol>
+           	    <li>I eat a lot of cereal.</li>
+				        <li>I watch a lot of sports.</li>
+			     </ol>
+			<h2>My favorite Quote</h2>
+			<blockquote>Only the strong survive. - Some guy</blockquote>
+
+    <h2>I'm learning the LAMP stack</h2>
+           <ul>
+           	    <li>Linux</li>
+           	    <li>Apache</li>
+           	    <li>MySQL</li>
+           	    <li>PHP</li>
+           </ul>
+    </div>
+
+    <div class='codeup'>Saying Hello From Codeup</div>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+
+
+		(function() {
+		$(document).ready(function(){
+			var paragraph = document.getElementById('para');
+			console.log( paragraph.innerText);
+			})
+    		//alert( 'The DOM has finished loading!' );
+
+    		var noob = document.getElementsByClassName('codeup');
+    		console.log( noob.innerText);
+    		//alert( 'The noob has finished loading!' );
+
+			$('ol, ul, h2').css('border', '1px solid red')
+			$('#wrapper').css('border', '2px solid green')
+			//alert(	'The wrapper is solid green!' );
+
+			$('.codeup').css('border', '3px solid yellow');
+			$('h1').css('color', 'papayawhip');
+			$('#para').css('font-weight', 'bold');
+
+			$('h1').click(
+				function(){	
+				$(this).css('background-color', 'blue');
+				})
+			$('p').dblclick(
+				function(){	
+				$('p').css('font-size', '18px');
+			})
+
+			$('li').hover(
+				function(){
+				$('li').css('color', 'red');
+ 
+				},
+				function () {
+				$('li').css('color','purple');
+				});
+			
+				
+		
+		})();
+	</script>
+</body>
+</html>
