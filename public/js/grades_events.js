@@ -24,30 +24,32 @@ var student = {
     }
 }
 
-var save = document.getElementById('save-name');
-var addAndContinue = document.getElementById('add-grade');
-var addAndCalculateAverage = document.getElementById('calculate-average');
+//var save = $('#save-name');
+var addAndContinue = $('#add-grade');
+var addAndCalculateAverage = $('#calculate-average');
 
-function saveName () {
-    var studentName = document.getElementById('name');
-    student.name = student.value;
-    addAndContinue.removeAttribute('disabled');
-    addAndCalculateAverage.removeAttribute('disabled');
-    document.getElementById('student-name').innerText = student.name;
+function saveName() {
+    console.log('saveName')
+    var studentName = $('#name').val();
+    // student.name = studentName.value;
+    console.log(studentName);
+    addAndContinue.attr('disabled');
+    addAndCalculateAverage.attr('disabled');
+    $('#student-name').html(student.name);
     
 }
 
 function afterSave(event) {
-    var subjectName = document.getElementById('subject');
-    var subjectGrade = document.getElementById('grade');
+    var subjectName = $('#subject').val();
+    var subjectGrade = $('#grade').val();
 
     student.addSubject(subjectName.value, parseInt(subjectGrade.value));
 
-    var tableBody = document.getElementById('grades');
-    tableBody.innerHTML = '<tr><td>' + subjectName.value + '</td><td>' + subjectGrade.value + '</td></tr>' + tableBody.innerHTML;
+    var tableBody = $('#grades').val();
+    tableBody.html = '<tr><td>' + subjectName.value + '</td><td>' + subjectGrade.value + '</td></tr>' + tableBody.html;
  
-    subjectName.value = '';
-    subjectGrade.value = '';
+    //subjectName.value = '';
+    //subjectGrade.value = '';
 }   
 
 //step 1 name and button activation
@@ -59,26 +61,36 @@ function afterSave(event) {
 function addContinue(event) {
     afterSave();
     var average = student.calculateAverage();
-    document.getElementById('student-average').innerText = average;
+    $('#student-average').html = average;
 
     if (student.isAwesome()){
-        document.getElementById('student-awesome').removeAttribute('class');
-        document.getElementById('student-practice').setAttribute('class', 'hidden');
+        $('#student-awesome').removeAttr('class');
+        $('#student-practice').attr('class', 'hidden');
     }else {
-        document.getElementById('student-practice').removeAttribute('class');
-        document.getElementById('student-awesome').setAttribute('class', 'hidden');        
+        $('#student-practice').removeAttr('class');
+        $('#student-awesome').attr('class', 'hidden');        
     }
 
-    addAndContinue.setAttribute('disabled', true);
-    addAndCalculateAverage.setAttribute('disabled', true);
+    addAndContinue.attr('disabled', true);
+
+    addAndCalculateAverage.attr('disabled', true);
 
 }
 
+    addAndContinue.attr('disabled',true);
+    addAndCalculateAverage.attr('disabled', true);
 
-save.addEventListener('click', saveName, false);
+    $('#save-name').on('click', saveName);
+    $('#subject').click(afterSave);
+    $('#add-grade').click(addContinue);
 
-addAndContinue.addEventListener('click', afterSave, false);
+// save.addEventListener('click', saveName, false);
 
-addAndCalculateAverage.addEventListener('click', addContinue, false);
+// addAndContinue.addEventListener('click', afterSave, false);
+
+// addAndCalculateAverage.addEventListener('click', addContinue, false);
+
+
+
 
 

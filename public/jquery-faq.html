@@ -7,6 +7,7 @@
 		.invisible {
 			display: none;
 		}
+
 	</style>
 
 </head>
@@ -37,25 +38,25 @@
 		<dt>Lorem ipsum </dt>	
 		<dd class='invisible'>The Yellowstone Caldera, in Yellowstone National Park, is a super volcano that is responsible for three of the world’s six biggest volcano eruptions. It is on pace to blow about 100,000 years from now. So come see it while you still can! - See more at: http://www.austinadventures.com/travel-resources/10-fun-facts-about-national-parks/#sthash.iYgYyOUQ.dpuf</dd>
 
-		<h3>Park #1</h3>
-		<ul>
-			<li>fact</li>
-			<li>fact</li>
-			<li>fact</li>
+		<h3 a href='#' id='ParkOne'>Park #1</h3>
+		<ul id ='facts'>
+			<li class='facts'>fact</li>
+			<li class='facts'>fact</li>
+			<li class='facts'>fact</li>
 		</ul>
 
 		<h3>Park #2</h3>
-		<ul>
-			<li>fact</li>
-			<li>fact</li>
-			<li>fact</li>
+		<ul id ='facts'>
+			<li class='facts'>fact</li>
+			<li class='facts'>fact</li>
+			<li class='facts'>fact</li>
 		</ul>
 
 		<h3>Park #3</h3>
-		<ul>
-			<li>fact</li>
-			<li>fact</li>
-			<li>fact</li>
+		<ul id ='facts'>
+			<li class='facts'>fact</li>
+			<li class='facts'>fact</li>
+			<li class='facts'>fact</li>
 		</ul>		
 
 	</dl>
@@ -65,15 +66,18 @@
 
 		$('#toggle').click(function(){
 			$('dd').toggleClass('invisible');
-			console.log('clicked')
 		});
 
 		$('ul').each(function(index, element) {
 			$(element).children().first().css('font-weight', 'bold');
 		});
 
-		$('li').click(function() {
-			$(this).parent().toggleClass('invisible');
+		// $('li').click(function() {
+		// 	$(this).parent().toggleClass('invisible');
+		// });
+
+		$('#ParkOne').click(function(){
+			$('li').fadeout();
 		});
 		
 	</script>
