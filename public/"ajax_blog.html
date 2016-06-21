@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Online Store</title>
+    <title>Blog</title>
     <link 
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
         rel="stylesheet" 
@@ -11,19 +11,17 @@
     >
 </head>
 <body>
-<h1>My Tool Store</h1>
+<h1>My First Blog</h1>
 <table id="products">
     <thead>
         <tr>
             <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th>Content</th>
             <th>Categories</th>
         </tr>
     </thead>
     <tbody id="insertProducts">
         <tr>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -38,7 +36,7 @@
     "use strict";
 
     function loadInventory () {
-        $.get('/data/inventory.json').done(function (inventory) {
+        $.get('/data/blog.json').done(function (inventory) {
             inventory.forEach(function(inventory){
                 var categoriesString = inventory.categories.join(', ');
                             //put inventory into a table
