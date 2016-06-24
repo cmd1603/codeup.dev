@@ -62,7 +62,7 @@
         var geocoder = new google.maps.Geocoder();
         //var myLatlng = new google.maps.LatLng(,);
         var mapOptions = {
-            zoom: 8,
+            zoom: 5,
             center: {lat: 29.423017, lng: -98.48527}
         }
 		console.log(mapOptions);
@@ -96,7 +96,8 @@
 
 
 			}).done(function(data) {
-			console.log(data);
+			$('#city').html(data.city.name); 		
+			//console.log(data);
 			data.list.forEach(function(weather, i){
 			var description = weather.weather[0].description;
 			var highTemp = weather.temp.max.toFixed(0);
@@ -105,14 +106,13 @@
 			var wind = weather.speed;
 
 			var dateString = moment().format("MMM Do YY");
-			var city = weather.city.name;
 
 	        $('#day' + i).html('<div class=\"day\"><p>' + dateString + '<b>High & Low:</b> ' + highTemp + '/' + lowTemp + '</p>' +
 	         '<p><b>Outside:</b> '+ description + '</p>' +
 	         '<p><b>Humidity: </b>' + humidity +
-	         '<p><b>Wind: </b>' + wind + + '</p></div>')
+	         '<p><b>Wind: </b>' + wind + '</p></div>')
 			})
-			$('#city').html(weather.city.name) 
+
 	  	});
 	}
 
