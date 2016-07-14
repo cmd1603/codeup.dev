@@ -23,7 +23,7 @@ extract(pageController());
               integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     </head>
     <body style="background-color: limegreen">
-    <h1 class="text-center">These are my favorite things</h1>
+    <h1 class="text-center" style="color: papayawhip">These are my favorite things</h1>
         <table class="table">
           <thead>
             <tr>
@@ -34,7 +34,7 @@ extract(pageController());
             </tr>
           </thead>
           <tbody>
-            <tr style="color: antiquewhite">
+            <tr style="color: papayawhip">
                 <?php foreach ($favoriteThings as $thing): ?>
                 <td><?= $thing; ?></td>
                 <?php endforeach; ?>
