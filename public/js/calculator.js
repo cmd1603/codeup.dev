@@ -2,16 +2,32 @@
  
 	var storeNumber = function(event) {
 		var operator = document.getElementById('operator');
-		if (operator.innerHTML != '') {
+		console.log(this);
+		console.log(this.getAttribute('data-value'));
+		if (operator.innerHTML != '' && leftOperand.value.indexOf(".") == -1 && rightOperand.value.indexOf(".") == -1) {
+			leftOperand.value += '.';
+			rightOperand.value += '.';
 			var numberInput = document.getElementById('rightOperand');
 			numberInput.innerHTML += this.getAttribute('data-value');
-		}
-		else {
+		} else {
 			var numberInput = document.getElementById('leftOperand');
-			numberInput.innerHTML += this.getAttribute('data-value');
-			}
+			numberInput.innerHTML += this.getAttribute('data-value');		
 		}
-	
+	}
+
+
+// 	var addOperate = function () {
+// 	 operatorSelected = this.getAttribute("data-value");
+// 	operator.value = operatorSelected;
+// }
+// var addDecimal = function() {
+// 	if (operator.value == "" && leftOperand.value.indexOf(".") == -1) {
+// 		leftOperand.value += ".";
+// 	} 
+// 	if (operator.value !== "" && rightOperand.value.indexOf(".") == -1) {
+// 		rightOperand.value += ".";
+// 	}
+// }
 	
 	var storeSecondInput = function(event) {
 		var addOperator = document.getElementById('operator');
@@ -63,6 +79,7 @@
 		operator.innerHTML = '';
 	}
 
+	
 	var numberInput = document.getElementsByClassName('numbers');
 		for (var i = 0; i < numberInput.length; i++) {
 			numberInput[i].addEventListener('click', storeNumber)

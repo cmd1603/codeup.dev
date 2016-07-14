@@ -7,6 +7,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
 	<style>
+		body {
+			background-image: url('img/weather.jpg')
+		}
 		h1, h3 {
 			text-align: center;
 		}
@@ -29,7 +32,11 @@
 	</style>	
 
 </head>
-<body>
+
+
+
+<body style='background-color: papayawhip;'>
+
 <h1>Weather Map Application</h1>
 <h3 id='city'></h3>
 
@@ -46,11 +53,14 @@
   </div>
 
 </div>
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZaQCnIGqQyKxO-gCzjrYP13FgXWdAl38"></script>
 	<script src="http://momentjs.com/downloads/moment.min.js"></script>
 
+<hr style="margin-top: 5rem; border-width: 3px; background-color: aliceblue;">
 	<div id='map'></div>
 	
  <button id='update'>Update Map</button> 
@@ -98,18 +108,22 @@
 			}).done(function(data) {
 			$('#city').html(data.city.name); 		
 			//console.log(data);
-			data.list.forEach(function(weather, i){
+			data.list.forEach(function(weather, i){ console.log(weather)
 			var description = weather.weather[0].description;
 			var highTemp = weather.temp.max.toFixed(0);
 			var lowTemp = weather.temp.min.toFixed(0);
 			var humidity = weather.humidity;
 			var wind = weather.speed;
+			var date = weather.dt;
+			var weatherIcon = weather.weather[0].icon;
 
-			var dateString = moment().format("MMM Do YY");
+			var dateString = moment.unix(date).format("MMM Do YY");
 
-	        $('#day' + i).html('<div class=\"day\"><p>' + dateString + '<b>High & Low:</b> ' + highTemp + '/' + lowTemp + '</p>' +
+	        $('#day' + i).html('<div class=\"day\"><p>' + dateString + 
+	         '<p><img src=\"http://openweathermap.org/img/w/' + weatherIcon + ".png\" alt=\"weather icon\">" +
+	         '<p><b>High & Low:</b> ' + highTemp + '/' + lowTemp + '</p>' +
 	         '<p><b>Outside:</b> '+ description + '</p>' +
-	         '<p><b>Humidity: </b>' + humidity +
+	         '<p><b>Humidity: </b>' + humidity + 
 	         '<p><b>Wind: </b>' + wind + '</p></div>')
 			})
 

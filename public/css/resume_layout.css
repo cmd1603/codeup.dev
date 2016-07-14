@@ -1,18 +1,22 @@
 body {
+	text-align: center;
 	background-color: #000;
 	color: #fff;
 }
 
 p {
-	position: absolute;
-	margin-right: 50px;
-	margin-left: 10px;
+	text-align: center;
+	position: relative;
 }
 
 h1, h4, {
+	text-align: center;
 	margin-right: 20px;
 }
 
+.container {
+	text-align: center;
+}
 .container-fluid {
 	background-color: #000;
 }
