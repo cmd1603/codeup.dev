@@ -2,7 +2,7 @@
 
 function pageController() {
 
-    $favoriteThings = ['games', 'tv', 'sports', 'women'];
+    $favoriteThings = ['sports', 'pokemon', 'muscle cars', 'women...sometimes'];
 
 
         $data = array();
@@ -24,13 +24,13 @@ extract(pageController());
     </head>
     <body style="background-color: limegreen">
     <h1 class="text-center" style="color: papayawhip">These are my favorite things</h1>
-        <table class="table">
+        <table class="table table-bordered text-center" style="font-size: x-large">
           <thead>
             <tr>
-                <th style="color:blueviolet">Fav1</th>
-                <th style="color:blueviolet">Fav2</th>
-                <th style="color:blueviolet">Fav3</th>
-                <th style="color:blueviolet">Fav4</th>
+                <th width="15%" style="color:blueviolet; text-align: center">Fav1</th>
+                <th width="15%" style="color:blueviolet; text-align: center">Fav2</th>
+                <th width="15%" style="color:blueviolet; text-align: center">Fav3</th>
+                <th width="15%" style="color:blueviolet; text-align: center">Fav4</th>
             </tr>
           </thead>
           <tbody>

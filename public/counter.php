@@ -19,8 +19,8 @@ extract(pageController());
               integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     </head>
     <body style="background-color: firebrick">
-        <h1 class="text-center" style="color: ghostwhite">Hey! Let's Count Up and Down!</h1>
-        <h3 class="text-center" style="color: ghostwhite"><?= $count ?></h3>
+        <h1 class="text-center" style="color: ghostwhite; font-size: 50px">Hey!<br>Let's Count Up and Down!</h1>
+        <h3 class="text-center" style="color: ghostwhite; font-size: 50px"><?= $count ?></h3>
         <div class ='col-md-12' style="text-align: center; font-size: 44px">
             <a href=" ?count=<?= $count + 1 ?>">+1</a>
             <br>
