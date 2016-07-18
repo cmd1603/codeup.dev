@@ -14,20 +14,6 @@
 			numberInput.innerHTML += this.getAttribute('data-value');		
 		}
 	}
-
-
-// 	var addOperate = function () {
-// 	 operatorSelected = this.getAttribute("data-value");
-// 	operator.value = operatorSelected;
-// }
-// var addDecimal = function() {
-// 	if (operator.value == "" && leftOperand.value.indexOf(".") == -1) {
-// 		leftOperand.value += ".";
-// 	} 
-// 	if (operator.value !== "" && rightOperand.value.indexOf(".") == -1) {
-// 		rightOperand.value += ".";
-// 	}
-// }
 	
 	var storeSecondInput = function(event) {
 		var addOperator = document.getElementById('operator');
@@ -96,54 +82,3 @@
 	var clearAll = document.getElementById('clear');
 		clearAll.addEventListener('click', clearAllFields);
 
-	//var makeNeg = document.getElementById('negativePositiveButton');
-		//makeNeg.addEventListener('click', makeNumberNegative);
-	
-/*	
-	//The variables below are for all buttons
-	var buttons = document.getElementsByClassName('numbers', 'symbol');
-	var clearButn = document.getElementById('clear')[0];
-
-	var leftOperand = document.getElementById('leftOperand');
-	var operator = document.getElementById('operator');
-	var rightOperand = document.getElementById('rightOperand');
-	
-	var	addButn = document.getElementById('sum').value;
-	var subtractButn = document.getElementById('rest').value;
-	var mulitplyButn = document.getElementById('multiply').value;
-	var divideButn = document.getElementById('divide').value;
-	var equalsButn = document.getElementById('equals').value;
-	//var numbersButn = document.getElementsByClassName('numbers');
-	
-	function displayUserInput() {
-
-      	for (var i = 0; i < leftOperand.length; i++) {
-	      	if (leftOperand[i].innerHTML === '÷') {
-		         operator.innerHTML  += '/';
-		      } else leftOperand[i].innerHTML === 'x' {
-		         operator.innerHTML  += '*';
-		
-				}
-
-	function clickOperator () {
-
-
-
-	}
-
-	//Adding an event listener for every button
-
-	buttons.addEventListener('click', displayUserInput, false);
-
-	addButn.addEventListener('click', '', false);
-
-	subtractButn.addEventListener('click','', false);
-
-	mulitplyButn.addEventListener('click','', false);
-
-	divideButn.addEventListener('click', '' , false);
-
-	clearButn.addEventListener('click','', false);
-
-	equalsButn.addEventListener('click','', false);
-*/
