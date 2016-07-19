@@ -5,8 +5,7 @@ function pageController(){
 
 
 	if(isset($_SESSION['logged_in_user'])) {
-		$username = $_SESSION['logged_in_user'];
-		echo $username;
+		return;
 	} else {
 		header('Location: login.php');
 		exit;

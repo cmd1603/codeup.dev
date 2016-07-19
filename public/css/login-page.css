@@ -1,6 +1,10 @@
+body {
+  padding-top: 120px;
+  padding-bottom: 40px;
+}
 
-#form {
-  margin: auto;
+.container {
+  /*margin: auto;*/
   position: absolute;
-  top: 30%; left: 0; bottom: 28%; right: 0;
+  top: 30%; left: 5%;
 }

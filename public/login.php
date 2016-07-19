@@ -41,34 +41,38 @@ if(isset($_SESSION['logged_in_user'])) {
 </head>
 <body background="img/brick.jpg" style="background-color: black;
       webkit-background-size: cover; moz-background-size: cover; o-background-size: cover; background-size: cover">
-<form method="POST">
-	<div class="container" id="form" style="background-color: lightgrey; opacity: 0.9">
-			<div class='row'>			
-			<div class="col-sm-offset-2 col-sm-10" id="header">
-				<h1 style="font-size: 55px; color: black; font-weight: bold; text-decoration: underline">Login</h1><br>
-			</div>
-		</div>
-		<div class="form-group row">
-				
-			<label for="inputUsername" class="col-sm-3 form control-label" style="text-align: right; color: black; text-decoration: underline; font-weight: bolder">Username</label>
-			<div class="col-sm-6">			
-				<input class='form-control' type="text" name="username" id="username" placeholder="Username" autofocus>
-			</div>
-		</div>
-	
-		<div class="form-group row">
 
-			<label for="inputUsername" class="col-sm-3 form control-label" style="text-align: right; color: black; text-decoration: underline; font-weight: bolder">Password</label>
-			<div class="col-sm-6">
-				<input class='form-control' type="password" name="password" id="password" placeholder="Password"><br>
+	<div class="container" id="form" style="background-color: lightgrey; opacity: 0.9">
+		<form method="POST">
+			<div class='row'>
+				<div class="col-sm-offset-2 col-sm-10" id="header">
+					<h1 style="font-size: 55px; color: black; font-weight: bold; text-decoration: underline">Login</h1><br>
+				</div>
 			</div>
-		<div class="form-group row">
-			<div class="col-sm-offset-5 col-sm-7">		
-			<button type="submit" class="btn btn-primary btn-lg">Login</button>
+
+			<div class="form-group row">
+				<label for="inputUsername" class="col-sm-3 form control-label" style="text-align: right; color: black; text-decoration: underline; font-weight: bolder">Username</label>
+				<div class="col-sm-6">
+					<input class='form-control' type="text" name="username" id="username" placeholder="Username" autofocus>
+				</div>
 			</div>
-		</div>	
+
+			<div class="form-group row">
+				<label for="inputUsername" class="col-sm-3 form control-label" style="text-align: right; color: black; text-decoration: underline; font-weight: bolder">Password</label>
+				<div class="col-sm-6">
+					<input class='form-control' type="password" name="password" id="password" placeholder="Password"><br>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-offset-5 col-sm-7">
+				<button type="submit" class="btn btn-primary btn-lg">Login</button>
+				</div>
+			</div>
+
+		</form>
 	</div>
-</form>
+
 <?php if (isset($message)) : ?>
 	<h1><?= $message ?></h1>
 <?php endif; ?>
