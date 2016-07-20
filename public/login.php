@@ -1,5 +1,7 @@
 <?php
 
+require_once 'functions.php';
+
 session_start();
 
 function pageController()
@@ -7,14 +9,14 @@ function pageController()
 	$errorMessage = 'Login Failed';
 
 
-	$username = isset($_POST['username']) ? $_POST['username'] : '';
-	$password = isset($_POST['password']) ? $_POST['password'] : '';
+	$username = (inputhas('username')) ? inputget('username') : '';
+	$password = (inputhas('password')) ? inputget('password') : '';
 
 	if (($username == 'guest') && ($password == 'password')) {
 		$_SESSION['logged_in_user'] = $username;
 		header('Location: authorized.php');
 	} else {
-		echo $errorMessage;
+		echo escape($errorMessage);
 	}
 
 }
@@ -76,6 +78,7 @@ if(isset($_SESSION['logged_in_user'])) {
 <?php if (isset($message)) : ?>
 	<h1><?= $message ?></h1>
 <?php endif; ?>
+
 
 </body>
 </html>

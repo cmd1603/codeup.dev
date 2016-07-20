@@ -1,8 +1,10 @@
 <?php
 
+require_once 'functions.php';
+
 function pageController()
 {
-    $count = !isset($_GET['count']) ? 0 : $_GET['count'];
+    $count = (inputhas('count')) ? (inputget('count')) : 0 ;
     return ['count' => $count];
 }
 
@@ -21,12 +23,12 @@ extract(pageController());
       background-repeat: no-repeat; webkit-background-size: cover; moz-background-size: cover; o-background-size: cover; background-size: cover">
     <h1 class="text-center" style="color: whitesmoke;">Ping Counter</h1>
     <h2 class="text-center" style="color: whitesmoke;"><?= $count?></h2>
-    <div class="col-md-4 text-center" style="font-size: x-large">
-        <a href="pong.php?count=<?= $count + 1 ?>" class="text-center" style="font-size: 50px; text-align: center; color: whitesmoke">HIT </a>
-    </div>
-    <div class="col-md-4"></div>
-    <div class="col-md-4 text-center" style="font-size: x-large">
-        <a href="ping.php?count=0" style="font-size: 50px; text-align: center; color: whitesmoke">MISS</a>
-    </div>
+        <div class="col-md-4 text-center" style="font-size: x-large">
+            <a href="pong.php?count=<?= $count + 1 ?>" class="text-center" style="font-size: 50px; text-align: center; color: whitesmoke">HIT </a>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 text-center" style="font-size: x-large">
+            <a href="ping.php?count=0" style="font-size: 50px; text-align: center; color: whitesmoke">MISS</a>
+        </div>
 </body>
 </html>

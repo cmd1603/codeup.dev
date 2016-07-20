@@ -1,26 +1,20 @@
 <?php
-//---------inputHas key returns true or false based on if the key is present----------//
+//---------inputHas key returns true or false based on if the key is available----------//
 function inputHas($key)
 {
-    if (isset($_REQUEST[$key])) {
-        return true;
-    } else {
-        return false;
-    }
+    return (isset($_REQUEST[$key]));
+
+}
 
 //--------inputGet key returns value indicated by the key, and null if key is not set---------//
 }
 
 function inputGet($key)
 {
-    if (isset($_REQUEST[$key])) {
-        return $_REQUEST[$key];
-    } else {
-        return null;
-    }
+    return $_REQUEST[$key];
 }
 
-//--------escape returns the input as an escaped string---------//
+//--------escape returns the input as a safely escaped string---------//
 
 function escape($input)
 {
