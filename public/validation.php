@@ -1,5 +1,6 @@
 <?php
-// Validation
+//---------------- Validation ----------------//
+
 function isValidName($name)
 {
     return !empty(trim($name));

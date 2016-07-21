@@ -1,5 +1,7 @@
 <?php
-// Middleware
+
+//----------------- Middleware ----------------------//
+
 function loadContacts()
 {
     $content = trim(file_get_contents('contacts.txt'));

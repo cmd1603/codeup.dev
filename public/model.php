@@ -1,5 +1,6 @@
 <?php
-// Model
+//---------------- Model ----------------//
+
 function addContact(&$contacts, $name, $number)
 {
     $contacts[] = [
@@ -7,6 +8,7 @@ function addContact(&$contacts, $name, $number)
         'number' => $number,
     ];
 }
+
 function searchContact($contacts, $name)
 {
     $matches = [];
@@ -19,9 +21,10 @@ function searchContact($contacts, $name)
 }
 function deleteContacts(&$contacts, $name)
 {
-    foreach ($contacts as $index => $contact) {
-        if (strpos($contact['name'], $name) !== false) {
-            unset($contacts[$index]);
+
+        foreach ($contacts as $index => $contact) {
+            if (strpos($contact['name'], $name) !== false) {
+                unset($contacts[$index]);
+            }
         }
-    }
 }
