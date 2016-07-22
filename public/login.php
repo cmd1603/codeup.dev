@@ -1,29 +1,32 @@
 <?php
 
-require_once 'functions.php';
+require_once '../Input.php';
+require_once '../Log.php';
+require_once '../Auth.php';
 
 session_start();
 
+if ($_POST) {
+	$errorMessage = pageController();
+}
+
+
 function pageController()
 {
-	$errorMessage = 'Login Failed';
+	$errorMessage = 'User $username failed to log in';
 
 
-	$username = (inputhas('username')) ? inputget('username') : '';
-	$password = (inputhas('password')) ? inputget('password') : '';
+	$username = Input::get('username');
+	$password = Input::get('password');
 
-	if (($username == 'guest') && ($password == 'password')) {
-		$_SESSION['logged_in_user'] = $username;
+	if (Auth::attempt($username, $password) == TRUE) {
 		header('Location: authorized.php');
 	} else {
-		echo escape($errorMessage);
+		return $errorMessage;
 	}
 
 }
 
-if ($_POST) {
-	pageController();
-}
 
 if(isset($_SESSION['logged_in_user'])) {
 	header('Location: authorized.php');

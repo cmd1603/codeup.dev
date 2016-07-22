@@ -1,18 +1,18 @@
 <?php
-session_start();
 
-function pageController(){
+require_once '../Auth.php';
+require_once '../Input.php';
 
+function pageController()
+{
 
-	if(isset($_SESSION['logged_in_user'])) {
-		return;
-	} else {
-		header('Location: login.php');
-		exit;
-	}
+	Auth::check();
 }
 
-pageController();
+if($_POST) {
+	pageController();
+}
+
 
 ?>
 
