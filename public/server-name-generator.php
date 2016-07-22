@@ -33,7 +33,7 @@ extract(pageController());
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body style="background-color: #18e6b8">
-    <h1 style="text-align: center; color: ghostwhite">You Got Serverddd...</h1>
+    <h1 style="text-align: center; color: ghostwhite">You Got Surrverddd...</h1>
     <h3 style="text-align: center; color: <?= $colors[$randomNumber];?>"><?= $serverName; ?></h3>
 </body>
 
