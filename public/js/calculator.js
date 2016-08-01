@@ -1,84 +1,124 @@
 	"use strict"
  
-	var storeNumber = function(event) {
-		var operator = document.getElementById('operator');
-		console.log(this);
-		console.log(this.getAttribute('data-value'));
-		if (operator.innerHTML != '' && leftOperand.value.indexOf(".") == -1 && rightOperand.value.indexOf(".") == -1) {
-			leftOperand.value += '.';
-			rightOperand.value += '.';
-			var numberInput = document.getElementById('rightOperand');
-			numberInput.innerHTML += this.getAttribute('data-value');
-		} else {
-			var numberInput = document.getElementById('leftOperand');
-			numberInput.innerHTML += this.getAttribute('data-value');		
-		}
+var numbers = document.getElementsByClassName('numbers');
+var operatorBox = document.getElementById('operatorBox');
+var leftOperand = document.getElementById('leftOperand');
+var rightOperand = document.getElementById('rightOperand');
+var clear = document.getElementById('clear');
+var operator = document.getElementsByClassName('operator');
+var answerBox = document.getElementById('answer');
+var finalResult = document.getElementById('answer');
+
+function clickNumber () {
+	if (operatorBox.value == "") {
+		leftOperand.value += this.innerHTML
+	} else {
+		rightOperand.value += this.innerHTML
 	}
+};
+for (var i = 0; i < numbers.length; i++) {
+	numbers[i].addEventListener('click', clickNumber);
+};
+
+function clickOperator () {
+	if (leftOperand.value == "") {
+		answerBox.value = "Please enter a value";
+	} else {
+	operatorBox.value = this.innerHTML
+	}
+};
+
+
+for (var i = 0; i < operator.length; i++) {
+	operator[i].addEventListener('click', clickOperator);
+};
+
+function clearEverything () {
+	leftOperand.value = "";
+	rightOperand.value = "";
+	operatorBox.value = "";
+	answerBox.value = "";
+};
+clear.addEventListener('click', clearEverything);
+
+function displayResult () {
+	// answerBox.toFixed(8);
 	
-	var storeSecondInput = function(event) {
-		var addOperator = document.getElementById('operator');
-		addOperator.innerHTML = this.getAttribute('data-value');
+	if (operatorBox.value == "+") {
+		answerBox.value = (parseFloat(leftOperand.value)) + (parseFloat(rightOperand.value));
+		leftOperand.value = "";
+		rightOperand.value = "";
+		operatorBox.value = "";
+	} else if (operatorBox.value == "-") {
+		answerBox.value = (parseFloat(leftOperand.value)) - (parseFloat(rightOperand.value));
+		leftOperand.value = "";
+		rightOperand.value = "";
+		operatorBox.value = "";
+		} else if (operatorBox.value == "*") {
+		answerBox.value = (parseFloat(leftOperand.value)) * (parseFloat(rightOperand.value));
+		leftOperand.value = "";
+		rightOperand.value = "";
+		operatorBox.value = "";
+	} else if (operatorBox.value == "/" && rightOperand.value == 0) {
+		answerBox.value = "Can't / by 0";
+		leftOperand.value = "";
+		rightOperand.value = "";
+		operatorBox.value = "";
+	} else if (operatorBox.value == "/") {
+		answerBox.value = (parseFloat(leftOperand.value)) / (parseFloat(rightOperand.value));
+		leftOperand.value = "";
+		rightOperand.value = "";
+		operatorBox.value = "";
+	} else if (operatorBox.value == "%") {
+		answerBox.value = (parseFloat(rightOperand.value)) * (parseFloat(leftOperand.value)) / 100;
+		leftOperand.value = "";
+		rightOperand.value = "";
+		operatorBox.value = "";
+	} else if (operatorBox.value == "^") {
+		answerBox.value = Math.pow((parseFloat(leftOperand.value)), (parseFloat(rightOperand.value)));
+		leftOperand.value = "";
+		rightOperand.value = "";
+		operatorBox.value = "";
 	}
+};
+finalResult.addEventListener('click', displayResult);
 
-	var clearExcess = function() {
-		var secondInput = document.getElementById('rightOperand');
-		secondInput.innerHTML = '';
-		var operator = document.getElementById('operator');
-		operator.innerHTML = '';
+var negative = document.getElementById('Neg');
+var sqroot = document.getElementById('sqrt');
 
+function negativeNumber () {
+	if (rightOperand.value == "") {
+		leftOperand.value = "-"+leftOperand.value;
+	} else if (leftOperand.value = "-") {
+		leftOperand.value = ""+leftOperand.value;
+	} 
+	 else if (leftOperand != "") {
+		rightOperand.value = "-"+rightOperand.value;
 	}
+};
+negative.addEventListener('click', negativeNumber);
 
-	var equalsOperator = function (event) {
-		var firstInput = document.getElementById('leftOperand');
-		var secondInput = document.getElementById('rightOperand');
-		var operator = document.getElementById('operator');
-		var operation;
-		switch (operator.innerHTML) {
-			case '*':
-				operation = parseInt(firstInput.innerHTML) * parseInt(secondInput.innerHTML);
-				break;
-			case '/':
-				operation = parseInt(firstInput.innerHTML) / parseInt(secondInput.innerHTML);
-				break;
-			case '+':
-				operation = parseInt(firstInput.innerHTML) + parseInt(secondInput.innerHTML);
-				break;
-			case '-':
-				operation = parseInt(firstInput.innerHTML) - parseInt(secondInput.innerHTML);
-				break;
-		}
-		console.log(operator.innerHTML, operator);
-
-		var answerNum = document.getElementById('leftOperand');
-		answerNum.innerHTML = operation;
-		clearExcess();
-	}
-
-
-
-	var clearAllFields = function () {
-		var firstInput = document.getElementById('leftOperand');
-		firstInput.innerHTML = '';
-		var secondInput = document.getElementById('rightOperand');
-		secondInput.innerHTML = '';
-		var operator = document.getElementById('operator');
-		operator.innerHTML = '';
-	}
-
+function squareRoot () {
 	
-	var numberInput = document.getElementsByClassName('numbers');
-		for (var i = 0; i < numberInput.length; i++) {
-			numberInput[i].addEventListener('click', storeNumber)
+	if(leftOperand.value == "") {
+		leftOperand.value = "";
+      return answerBox.value = "Please enter a value";
+    } 
+    if(leftOperand.value == 0) {
+    	leftOperand.value = "";
+      return answerBox.value = "Square root is 0";
+    }
+    if(leftOperand.value < 0) {
+    	leftOperand.value = "";
+      return answerBox.value = "Square root is an imaginary number";
+    } else {
+		answerBox.value = Math.sqrt(parseFloat(leftOperand.value));
+		leftOperand.value = "";
+		operatorBox.value = "";
+		rightOperand.value = "";
 		}
+  };
+sqroot.addEventListener('click', squareRoot);
 
-	var operatorInput = document.getElementsByClassName('symbol');
-		for (var i = 0; i < operatorInput.length; i++) {
-			operatorInput[i].addEventListener('click', storeSecondInput)
-		}
 
-	var runOperation = document.getElementById('equals');
-		runOperation.addEventListener('click', equalsOperator);
-
-	var clearAll = document.getElementById('clear');
-		clearAll.addEventListener('click', clearAllFields);
 
