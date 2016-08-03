@@ -1,6 +1,6 @@
 <?php
 
-require_once 'parks_login.php';
+require_once 'parks_config.php';
 
 require_once 'db_connect.php';
 
