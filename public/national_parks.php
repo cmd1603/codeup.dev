@@ -6,7 +6,7 @@ require __DIR__ . '/../db_connect.php';
 
 $parksCount = $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
 
-var_dump($parksCount);
+// var_dump($parksCount);
 $limit = 4;
 if (Input::has('page')) {
 	$page = Input::get('page');
@@ -38,10 +38,11 @@ $parks = $dbc->query($query)->fetchALL(PDO::FETCH_ASSOC);
 	>
 	<title>National Parks</title>	
 </head>
-<body>
+<body background="img/forest.jpg" style="background-color: black;
+      background-repeat: no-repeat; webkit-background-size: cover; moz-background-size: cover; o-background-size: cover; background-size: cover">
 	<div class="container">
 		<h1>US National Parks</h1>
-		<table class="table table-striped table-bordered table-hover">
+		<table class="table table-bordered table-hover"; style="color: chocolate; background-color: beige; opacity: 0.9; font-weight: 600">
 			<thead>
 				<tr>
 					<th>Park</th>
@@ -62,10 +63,10 @@ $parks = $dbc->query($query)->fetchALL(PDO::FETCH_ASSOC);
 
 	<?php
 	if ($page > 1) { ?>
-		<a class ="btn btn-danger" style="padding: 2em;" href="/national_parks.php?page=<?=($page - 1)?>">Previous Page</a>
+		<a class ="btn btn-danger" style="padding: 1em;" href="/national_parks.php?page=<?=($page - 1)?>">Previous Page</a>
 	<?php }	
 	if ($page < $pageCount) { ?>
-		<a class="btn btn-danger" style="padding: 2em; float: right;" href="/national_parks.php?page=<?=($page+1)?>">Next Page</a>
+		<a class="btn btn-danger" style="padding: 1em; float: right;" href="/national_parks.php?page=<?=($page+1)?>">Next Page</a>
 	<?php }
 	?>
 
