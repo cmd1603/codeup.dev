@@ -1,7 +1,6 @@
 <?php
 
 require_once 'parks_config.php';
-
 require_once 'db_connect.php';
 
 $query = "DROP TABLE IF EXISTS national_parks";
