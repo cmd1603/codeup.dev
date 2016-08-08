@@ -3,26 +3,76 @@
 require __DIR__ . '/../Input.php';
 require __DIR__ . '/../parks_config.php';
 require __DIR__ . '/../db_connect.php';
-require __DIR__ . '/../parks-form.php';
+
 
 // var_dump($parksCount);
-
+$countAll = "SELECT count(*) FROM national_parks";
+$stmt = $dbc->prepare($countAll);
+$stmt->execute();
+$count = $stmt->fetchColumn();
 $limit = 4;
-if (Input::has('page')) {
-	$page = Input::get('page');
-	$offset = (Input::get('page') - 1) * $limit;
-} else {
-	$offset = 0;
-	$page = 1;
-}
+$page = Input::get('page');
+$maxPages = ceil($count / $limit);
 
-$parksCount = $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
-$pageCount = ceil($parksCount / $limit);
-$stmt = $dbc->prepare('SELECT * FROM national_parks LIMIT :limit OFFSET :offset');
-$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+$page = Input::has('page') ? Input::get('page'): 1;
+	if ($page < 0 || $page > $maxPages){
+		$page = 1;
+	} else {
+		$page;
+	}
+$offset = ($page -1) * 4;
+	if(Input::has('all')) {
+		$limit = (int)$count;
+		$offset = 0;
+	}	
+
+$selectAll = "SELECT * FROM national_parks LIMIT :limiter OFFSET :offset";
+
+$stmt = $dbc->prepare($selectAll);
+$stmt->bindValue(':limiter', $limit, PDO::PARAM_INT);
 $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
 $parks = $stmt->fetchALL(PDO::FETCH_ASSOC);
+$errors = [];
+$maxDate = date('Y-m-d');
+
+if(!empty($_POST)) {
+	try {
+		$name = Input::getString('name');
+	} catch (Exception $e) {
+		$errors['name'] = $e->getMessage();
+	}
+	try {
+		$location = Input::getString('location');
+	} catch (Exception $e) {
+		$errors['location'] = $e->getMessage();
+	}
+	try {
+		$area = Input::getString('area');
+	} catch (Exception $e) {
+		$errors['area'] = $e->getMessage();
+	}
+	try {
+		$dateTimeObject = Input::getDate('date_established', new DateTime('1900-01-01'), new DateTime());
+	} catch (Exception $e) {
+		$errors['date_established'] = $e->getMessage();
+	}
+
+	if(empty($errors)) {
+		$formattedDate = $dateTimeObject->format('Y-m-d');
+		$query = 'INSERT INTO national_parks (name,location,date_established, area_in_acres)
+		VALUES (:name, :location, :date_established, :area )';
+
+			$stmt = $dbc->prepare($query);
+			$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+		    $stmt->bindValue(':location', $location, PDO::PARAM_STR);
+		    $stmt->bindValue(':date_established', $formattedDate, PDO::PARAM_STR);
+		    $stmt->bindValue(':area', $area, PDO::PARAM_STR);
+		    $stmt->bindValue(':description', $description, PDO::PARAM_STR);
+		    $stmt->execute();
+
+	}		
+}
 
 ?>
 
@@ -48,40 +98,41 @@ $parks = $stmt->fetchALL(PDO::FETCH_ASSOC);
 <body  background="img/forest.jpg" style="background-color: black;
       background-repeat: no-repeat; webkit-background-size: cover; moz-background-size: cover; o-background-size: cover; background-size: cover; padding-left: 1%; padding-bottom: 1%;">
 	<div class="container">
-		<h1>US National Parks</h1>
-		<table class="table table-bordered table-hover"; style="color: chocolate; background-color: beige; opacity: 0.9; font-weight: 600">
-			<thead>
+			<h1>US National Parks</h1>
+			<table class="table table-bordered table-hover"; style="color: chocolate; background-color: beige; opacity: 0.9; font-weight: 600">
+				<thead>
+					<tr>
+						<th>Park</th>
+						<th>Location</th>
+						<th>Date Established</th>
+						<th>Area in Acres</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+			<?php foreach ($parks as $park) : ?>
 				<tr>
-					<th>Park</th>
-					<th>Location</th>
-					<th>Date Established</th>
-					<th>Area in Acres</th>
-					<th>Description</th>
+					<td> <?= $park['name']; ?></td>
+					<td> <?= $park['location']; ?></td>
+					<td> <?= date_format(date_create($park['date_established']), 'F j, Y'); ?></td>
+					<td> <?= number_format($park['area_in_acres'], 2); ?></td>
+					<td> <?= $park['description']; ?></td>
 				</tr>
-			</thead>
-		<?php foreach ($parks as $park) : ?>
-			<tr>
-				<td> <?= $park['name']; ?></td>
-				<td> <?= $park['location']; ?></td>
-				<td> <?= date_format(date_create($park['date_established']), 'F j, Y'); ?></td>
-				<td> <?= number_format($park['area_in_acres'], 2); ?></td>
-				<td> <?= $park['description']; ?></td>
-			</tr>
-		<?php endforeach ?>		
-		</table>
+			<?php endforeach ?>		
+			</table>
 
-	<?php
-	if ($page > 1) { ?>
-		<a class ="btn btn-danger" style="padding: 1em;" href="/national_parks.php?page=<?=($page - 1)?>">Previous Page</a>
-	<?php }	
-	if ($page < $pageCount) { ?>
-		<a class="btn btn-danger" style="padding: 1em; float: right;" href="/national_parks.php?page=<?=($page+1)?>">Next Page</a>
-	<?php }
-	?>
+		<?php
+		if ($page > 1) { ?>
+			<a class ="btn btn-danger" style="padding: 1em;" href="/national_parks.php?page=<?=($page - 1)?>">Previous Page</a>
+		<?php }	
+		if ($page < $maxPages) { ?>
+			<a class="btn btn-danger" style="padding: 1em; float: right;" href="/national_parks.php?page=<?=($page+1)?>">Next Page</a>
+		<?php }
+		?>
 
 	</div>
+
 	<div>
-		<div id="parksForm" class=">
+		<div id="parksForm">
 		<form class="form-horizontal" method="POST">
 			<fieldset>
 			
@@ -90,7 +141,8 @@ $parks = $stmt->fetchALL(PDO::FETCH_ASSOC);
 			<div class="control-group">
 				<label style="color:cornsilk" class="control-label">Park Name</label>
 					<div class="controls">
-						<input type="name" name="name" type="text" placeholder="Type Park Here" class="input-large" required="">
+						<input type="name"  placeholder="Type Park Here" class='<?= !empty($errors['name'])?$findError : '' ?>'
+							 name="name" type="text" value='<?= isset($_POST['name']) && empty($errors['name'])? $_POST['name']: ''?>'>
 					</div>
 			</div>
 			<br>
@@ -109,16 +161,17 @@ $parks = $stmt->fetchALL(PDO::FETCH_ASSOC);
 			<div class="control-group">
 				<label style="color:cornsilk" class="control-label">Date Established</label>
 					<div class="controls">
-						<input id="established" name="date" type="text" placeholder="1900-01-01" class="input-large" required="">
-						<p class="help-block" style="color:white">Format: YYYY-MM-DD</p>
+						<input id="established" class='<?= !empty($errors['date_established'])? $findError : '' ?>'
+				 name="date_established" type="text" value='<?= isset($_POST['date_established']) && empty($errors['date_established'])? $_POST['date_established']: ''?>'>
 					</div>
 			</div>
 
 			<div class="control-group">
 				<label style="color:cornsilk" class="control-label">Area In Acres</label>
 					<div class="controls">
-						<input id="area-input" name="area" placeholder="100000.11" class="input-large" required="">
-						<p class="help-block" style="color:white">Numbers only</p>
+						<input id="area-input" name="area" class='<?= !empty($errors['area'])? $findError : '' ?>'
+				 name="area" type="text" value='<?= isset($_POST['area']) && empty($errors['area'])? $_POST['area']: ''?>'> required="">
+						
 					</div>
 			</div>		
 
@@ -139,15 +192,11 @@ $parks = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
 			</fieldset>		
 		</form>
+		<?php foreach ($errors as $error) : ?>
+			<h4 class='errors'>An error has occurred, <?= $error; ?> </h4>
+		<?php endforeach ?>		
 		</div>
 	</div>
 
 </body>
 </html>
-
-
-
-
-
-
-
