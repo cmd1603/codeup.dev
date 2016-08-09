@@ -57,11 +57,16 @@ if(!empty($_POST)) {
 	} catch (Exception $e) {
 		$errors['date_established'] = $e->getMessage();
 	}
+	try {
+		$description = Input::getString('description');
+	} catch (Exception $e) {
+		$errors['description'] = $e->getMessage();
+	}	
 
 	if(empty($errors)) {
 		$formattedDate = $dateTimeObject->format('Y-m-d');
-		$query = 'INSERT INTO national_parks (name,location,date_established, area_in_acres)
-		VALUES (:name, :location, :date_established, :area )';
+		$query = 'INSERT INTO national_parks (name,location,date_established, area_in_acres, description)
+		VALUES (:name, :location, :date_established, :area, :description)';
 
 			$stmt = $dbc->prepare($query);
 			$stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -141,8 +146,8 @@ if(!empty($_POST)) {
 			<div class="control-group">
 				<label style="color:cornsilk" class="control-label">Park Name</label>
 					<div class="controls">
-						<input type="name"  placeholder="Type Park Here" class='<?= !empty($errors['name'])?$findError : '' ?>'
-							 name="name" type="text" value='<?= isset($_POST['name']) && empty($errors['name'])? $_POST['name']: ''?>'>
+						<input type="name"  placeholder="Type Park Here" class='<?= !empty($errors['name'])?>'
+							 name="name" type="text" value='<?= isset($_POST['name']) && empty($errors['name'])? $_POST['name']: ''?>' required="">
 					</div>
 			</div>
 			<br>
@@ -161,16 +166,16 @@ if(!empty($_POST)) {
 			<div class="control-group">
 				<label style="color:cornsilk" class="control-label">Date Established</label>
 					<div class="controls">
-						<input id="established" class='<?= !empty($errors['date_established'])? $findError : '' ?>'
-				 name="date_established" type="text" value='<?= isset($_POST['date_established']) && empty($errors['date_established'])? $_POST['date_established']: ''?>'>
+						<input id="date_established" class='<?= !empty($errors['date_established'])?>'
+				 name="date_established" type="text" value='<?= isset($_POST['date_established']) && empty($errors['date_established'])? $_POST['date_established']: ''?>' required="">
 					</div>
 			</div>
 
 			<div class="control-group">
 				<label style="color:cornsilk" class="control-label">Area In Acres</label>
 					<div class="controls">
-						<input id="area-input" name="area" class='<?= !empty($errors['area'])? $findError : '' ?>'
-				 name="area" type="text" value='<?= isset($_POST['area']) && empty($errors['area'])? $_POST['area']: ''?>'> required="">
+						<input id="area-input" name="area" class='<?= !empty($errors['area'])?>'
+				 name="area" type="text" value='<?= isset($_POST['area']) && empty($errors['area'])? $_POST['area']: ''?>' required="">
 						
 					</div>
 			</div>		
@@ -178,7 +183,8 @@ if(!empty($_POST)) {
 			<div class="control-group">
 				<label style="color:cornsilk" class="control-label">Park Description</label>
 					<div class="controls">
-						<textarea rows="5" cols="30" id="textarea" name="description" required=""></textarea>
+						<textarea rows="5" cols="30" id="textarea" class='<?= !empty($errors['description'])?>'
+				 name="description" value='<?= isset($_POST['description']) && empty($errors['description'])? $_POST['description']: ''?>' required=""></textarea>
 						<p class="help-block" style="color:white">Limit 500 characters.</p>
 					</div>
 			</div>

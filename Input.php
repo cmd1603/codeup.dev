@@ -34,7 +34,7 @@ class Input
         }elseif (!is_numeric($min) || (!is_numeric($max))) {
             throw new InvalidArgumentException("$min and $max must be numeric!");
         } elseif (empty(self::get($trimInput))) {
-            throw new OutofRangeException("$Please enter a value");    
+            throw new OutofRangeException("Please enter a value");    
         } elseif ($key > $max || $key < $min) {
             throw new LengthException("Input is too short or too long");    
         } else {
@@ -49,7 +49,7 @@ class Input
         }elseif (!is_numeric($min) || (!is_numeric($max))) {
             throw new InvalidArgumentException("$min and $max must be numeric!");
         } elseif (empty(self::get($key))) {
-            throw new OutofRangeException("$Please enter a value");    
+            throw new OutofRangeException("Please enter a value");    
         } elseif ($key > $max || $key < $min) {
             throw new LengthException("Input is too small or too big");    
         } else {
@@ -60,19 +60,14 @@ class Input
     public static function getDate($key, $min = null , $max = null) 
     {
         $date = new DateTime(self::get($key));
-        if (empty(self::get($key))) {
-            throw new OutOfRangeException("Please enter a value");
-        } else if ($date > $max || $date < $min) {
-            throw new DateRangeException("Date is either too short or too big");
-        } else if (self::get($key) != date()) {
+        if ($date === false) {
             throw new Exception("Invalid date entered.");
         }
-        try {
-            $date = new DateTime(self::get($key));
-            return $date;
-        } catch (Exception $e) {
-            throw new Exception("Please enter a valid date");
-        }
+        if (!is_null($max) && !is_null($min) && ($date > $max || $date < $min)) {
+            throw new DateRangeException("Date is either too short or too big");
+        } 
+        
+        return $date;
     }
     
     ///////////////////////////////////////////////////////////////////////////
