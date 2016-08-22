@@ -23,7 +23,7 @@ class User extends Model
 
         $stmt->bindValue(':name',             $this->name,            PDO::PARAM_STR);
         $stmt->bindValue(':email',            $this->email,           PDO::PARAM_STR);
-        $stmt->bindValue(':password',         password_hash($this->attributes['password'], PASSWORD_DEFAULT),        PDO::PARAM_STR);
+        $stmt->bindValue(':password',         $this->password,        PDO::PARAM_STR);
 
         $result = $stmt->execute();
 
@@ -47,7 +47,7 @@ class User extends Model
         $stmt->bindValue(':id',               $this->id,              PDO::PARAM_INT);
         $stmt->bindValue(':name',             $this->name,            PDO::PARAM_STR);
         $stmt->bindValue(':email',            $this->email,           PDO::PARAM_STR);
-        $stmt->bindValue(':password',         password_hash($this->attributes['password'], PASSWORD_DEFAULT),        PDO::PARAM_STR);
+        $stmt->bindValue(':password',         $this->password,        PDO::PARAM_STR);
 
         $result = $stmt->execute();
 

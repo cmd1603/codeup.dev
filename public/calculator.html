@@ -7,18 +7,25 @@
 	<link rel="stylesheet" href="css/calculator.css">
 </head>
 <body>
-<h1>Javascript Calculator</h1>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4 text-center"><h1 id="featured">JavaScript Calculator</h1></div>
+		<div class="col-md-4"></div>
+	</div>
+</div>
 
 	<form>
 		<section>
-		<div class="col-md-2"></div>
-			<div class="container col-md-8 text-center" id="bs_div">
+		<div class="col-md-4"></div>
+			<div class="container col-md-4 text-center" id="bs_div">
 				<div class="row">
 					<div id='forms'>
 						<input class='forms' type='text' id='leftOperand' value="" readonly="">
 						<input class='forms' type='text' id='operatorBox' value=""  readonly="">
 						<input class='forms' type='text' id='rightOperand' value=""  readonly="">
-						<input class='forms' type='text' id='answer' name="answer" value="" readonly=""> 
+						<input class='forms' type='text' id='answer' name="answer" value="" readonly="">
 					</div>
 
 					<div>
@@ -46,13 +53,13 @@
 					</div>	
 						<div>
 							<button type='button' data-value='C' class='buttons final btn btn-default' id='clear'>C</button>
-							<button type='button' data-value='0' class='buttons numbers btn btn-default' id='clear'>0</button>
+							<button type='button' data-value='0' class='buttons numbers btn btn-default' id='zero'>0</button>
 							<button type='button' data-value='=' class='buttons final btn btn-default' id='equals'>=</button>
 							<button type='button' data-value='/' class='buttons operator btn btn-default' id='divide'>/</button>
 						</div>
 					</div>
 					<div>
-						<div>	
+						<div class="bottom-row">
 							<button type='button' data-value='.' class='buttons numbers btn btn-default' id='decimal'>.</button>
 							<button type="button" class="buttons special btn btn-default" data-value="Neg" id="Neg">Neg</button>
 							<button type="button" class="buttons special btn btn-default" data-value="sqrt" id="sqrt">√</button>				    
@@ -60,7 +67,7 @@
 					</div>
 				</div>
 			</div>
-		<div class="col-md-2"></div>
+		<div class="col-md-4"></div>
 		</section>
 	</form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">

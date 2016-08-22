@@ -1,14 +1,12 @@
 <?php
 
 require_once 'User.php';
-
-// $testUser = new User();
-
-// $testUser->name = 'test';
-// $testUser->email = 'test@email.com';
-// $testUser->password = 'testpassword';
-
-// $testUser->save();
+//---add new user---//
+$testUser = new User();
+$testUser->name = 'test2';
+$testUser->email = 'test2@email.com';
+$testUser->password = password_hash('test2password', PASSWORD_DEFAULT);
+$testUser->save();
 
 // $foundUser = User::find(7);
 // var_dump($foundUser);

@@ -7,7 +7,7 @@ var rightOperand = document.getElementById('rightOperand');
 var clear = document.getElementById('clear');
 var operator = document.getElementsByClassName('operator');
 var answerBox = document.getElementById('answer');
-var finalResult = document.getElementById('answer');
+var finalResult = document.getElementById('equals');
 
 function clickNumber () {
 	if (operatorBox.value == "") {
@@ -26,19 +26,20 @@ function clickOperator () {
 	} else {
 	operatorBox.value = this.innerHTML
 	}
-};
+}
 
 
 for (var i = 0; i < operator.length; i++) {
 	operator[i].addEventListener('click', clickOperator);
-};
+}
 
 function clearEverything () {
 	leftOperand.value = "";
 	rightOperand.value = "";
 	operatorBox.value = "";
 	answerBox.value = "";
-};
+}
+
 clear.addEventListener('click', clearEverything);
 
 function displayResult () {
@@ -80,7 +81,8 @@ function displayResult () {
 		rightOperand.value = "";
 		operatorBox.value = "";
 	}
-};
+}
+
 finalResult.addEventListener('click', displayResult);
 
 var negative = document.getElementById('Neg');
@@ -95,7 +97,8 @@ function negativeNumber () {
 	 else if (leftOperand != "") {
 		rightOperand.value = "-"+rightOperand.value;
 	}
-};
+}
+
 negative.addEventListener('click', negativeNumber);
 
 function squareRoot () {
@@ -117,7 +120,8 @@ function squareRoot () {
 		operatorBox.value = "";
 		rightOperand.value = "";
 		}
-  };
+  }
+
 sqroot.addEventListener('click', squareRoot);
 
 
