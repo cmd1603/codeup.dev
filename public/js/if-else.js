@@ -1,8 +1,8 @@
 "use strict"
 
-var grade1 = 70;
+var grade1 = 80;
 var grade2 = 80;
-var grade3 = 95;
+var grade3 = 80;
 
 var combinedGrades = grade1 + grade2 + grade3;
 var numberofGrades = 3;
@@ -10,7 +10,7 @@ var aweseomeGrade = 80;
 
 var average = combinedGrades / numberofGrades;
 
-if (average > aweseomeGrade) {
+if (average >= aweseomeGrade) {
 	console.log("You're awesome!");
 } else {
 	console.log("You need to practice more"); 
