@@ -34,7 +34,7 @@ switch (luckyNumber) {
 
 var discoutedCost = receipt - (receipt * discount);
 
-console.log('You got a ' + luckyNumber + ' and have to pay ' + discoutedCost);
+console.log('You got a ' + luckyNumber + ' and have to pay ' + '$' + discoutedCost);
 
 
 var monthNumber = Math.floor(Math.random()* 12) + 1;
@@ -79,5 +79,5 @@ switch (monthNumber) {
 		break;
 }
 
-console.log('You got a ' + monthNumber + ' which is ' + month);
+console.log('You got a ' + monthNumber + ' which is the month of ' + month);
 
