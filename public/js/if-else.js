@@ -14,7 +14,7 @@ if (average >= aweseomeGrade) {
 	console.log("You're awesome!");
 } else {
 	console.log("You need to practice more"); 
-}
+}git 
 
 
 

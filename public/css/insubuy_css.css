@@ -1,0 +1,36 @@
+h1 {
+  font-family: "rooney-web", 'AmericanTypewriter', Rockwell, serif;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.container {
+  margin: 2em auto;
+  max-width: 630px;
+  text-align: center;
+}
+
+#amountNeeded {
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 4%; 
+}
+
+#mainBox {
+  background-color: white;
+  border: 1px solid grey;
+  color: grey;
+}
+
+#giveNow {
+  background-color: green;
+  color: white;
+}
+
+p {
+  font-size: small;
+}
+
+#left-box {
+  margin-right: 2%;
+}

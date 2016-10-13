@@ -1,0 +1,93 @@
+html,body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#hero {
+    background-image: url("img/texas_roadside_evening.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height: 100vh;
+    padding-top: 1px;
+}
+
+
+h1 {
+    font-size: 58px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Source Code Pro", Monaco, monospace;
+    font-weight: 300;
+    position: relative;
+    top: 65%;
+}
+
+p {
+    word-spacing: 2px;
+    padding-bottom: 2%;
+}
+
+p, h2 {
+    width: 75%;
+    margin: auto;
+    padding-top: 3%;
+}
+
+section {
+    clear: both;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-rule: 1px solid #ddd;
+    -moz-column-rule: 1px solid #ddd;
+    column-rule: 1px solid rgba(204, 204, 204, 1);
+}
+
+section:first-child {
+    width: 73%;
+    padding-left: 4%;
+    float: left;
+    padding-bottom: 5%;
+}
+
+section:last-child {
+    float: right;
+}
+
+img {
+    display: inherit;
+    padding-top: 5%;
+    height: 300px;
+    width: 475px;
+    margin: auto;
+}
+
+footer {
+    background-color: black;
+    border-top: 1px solid white;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.inner {
+    text-align: center;
+    color: white;
+    padding-top: 41px;
+}
+
+/*-------------- MEDIA QUERY --------------*/
+
+@media all and (max-width: 600px) {
+    section {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+

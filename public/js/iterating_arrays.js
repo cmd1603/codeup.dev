@@ -11,9 +11,8 @@
 			}
 
 				console.log("ForEach loop:");
-			names.ForEach(function (element, index, array) {
-				console.log('')
-			}
 
+			names.forEach(function (element, index, array) {
+				
 				console.log('Name at index ' + index + ' is ' + element);
 			});
